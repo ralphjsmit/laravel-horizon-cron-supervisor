@@ -1,2 +1,5 @@
 .DS_Store
 vendor
+vendor.nosync
+node_modules
+node_modules.nosync
