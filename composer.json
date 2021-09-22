@@ -16,5 +16,12 @@
 	},
 	"require-dev": {
 		"orchestra/testbench": "^6.0"
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"RalphJSmit\\LaravelHorizonCron\\SupervisorServiceProvider"
+			]
+		}
 	}
 }
