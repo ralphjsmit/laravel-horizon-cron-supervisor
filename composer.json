@@ -1,0 +1,20 @@
+{
+	"name": "ralphjsmit/laravel-horizon-cron-supervisor",
+	"description": "A package that provides a convenient artisan command to supervise your Laravel Horizon queues.",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+	  {
+		"name": "Ralph J. Smit",
+		"email": "rjs@ralphjsmit.com"
+	  }
+	],
+	"autoload": {
+		"psr-4": {
+			"RalphJSmit\\LaravelHorizonCron\\": "src"
+		}
+	},
+	"require-dev": {
+		"orchestra/testbench": "^6.0"
+	}
+}
