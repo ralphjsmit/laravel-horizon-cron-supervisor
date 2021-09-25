@@ -18,16 +18,16 @@ class RestartHorizon extends Command
 		$res = shell_exec("php artisan horizon:status");
 
 		if($res !== "Horizon is running.\n") {
-			echo "horizon is not running, starting it\n";
+			echo "Horizon is not running, starting it\n";
 			$fp = popen("php artisan horizon", "r");
 			while (!feof($fp)) {
 				$buffer = fgets($fp, 4096);
 				echo $buffer;
 			}
-			echo "horizon was terminated\n";
+			echo "Horizon was terminated and could not be started\n";
 			pclose($fp);
 		} else {
-			echo "horizon is running\n";
+			echo "Horizon is running\n";
 		}
 	}
 }
