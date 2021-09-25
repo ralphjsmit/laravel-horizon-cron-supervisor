@@ -42,4 +42,4 @@ Note that this workflow is greatly simplified and doesn't take into account anyt
 
 This package was created by [Ralph J. Smit](https://ralphjsmit.com/). Checkout my website [ralphjsmit.com](https://ralphjsmit.com/) for [Laravel and development-related tutorials](https://ralphjsmit.com/).
 
-Special thanks to [ahoffman](https://stackoverflow.com/users/952994/ahofmann) for his code on running and checking whether Horizon is active.
+The package was inspired by [this StackOverflow question](https://stackoverflow.com/questions/66930824/running-laravel-horizon-on-shared-hosting-via-cron/67784583) and my need for this as well. Special thanks to [ahoffman](https://stackoverflow.com/users/952994/ahofmann) for his code on running and checking whether Horizon is active.
