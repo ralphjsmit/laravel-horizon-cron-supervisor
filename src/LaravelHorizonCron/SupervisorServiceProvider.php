@@ -1,6 +1,6 @@
 <?php
 
-namespace RalphJSmit\LaravelHorizonCron;
+namespace RalphJSmit\LaravelHorizonCron\Supervisor;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Command;

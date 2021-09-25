@@ -1,6 +1,6 @@
 <?php
 
-namespace RalphJSmit\LaravelHorizonCron;
+namespace RalphJSmit\LaravelHorizonCron\Supervisor;
 
 class Supervisor
 {
