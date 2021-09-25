@@ -26,7 +26,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"RalphJSmit\\LaravelHorizonCron\\Supervisor\\SupervisorServiceProvider"
+				"RalphJSmit\\LaravelHorizonCron\\SupervisorServiceProvider"
 			]
 		}
 	}
