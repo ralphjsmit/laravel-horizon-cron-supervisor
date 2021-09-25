@@ -3,6 +3,7 @@
 namespace RalphJSmit\LaravelHorizonCron\Supervisor;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\Scheduling\Schedule;
 
 class SupervisorServiceProvider extends ServiceProvider
 {
