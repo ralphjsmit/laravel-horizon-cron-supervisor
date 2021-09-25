@@ -11,12 +11,12 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"RalphJSmit\\LaravelHorizonCron\\": "src"
+			"RalphJSmit\\": "src"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"RalphJSmit\\LaravelHorizonCron\\": "tests"
+			"RalphJSmit\\": "tests"
 		}
 	},
 	"require-dev": {
