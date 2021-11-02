@@ -1,5 +1,7 @@
 # A modern solution for running Laravel Horizon with a cron-based supervisor
 
+![laravel-horizon-cron-supervisor@1x](https://user-images.githubusercontent.com/59207045/139930078-a242e7bc-a41a-4569-8e30-c8d70bd60313.jpg)
+
 This Laravel package automatically checks every three minutes if your [Laravel Horizon](https://laravel.com/docs/8.x/horizon) instance is still running. In that way, it is the perfect replacement for the normally recommended [Supervisor Process Control System](http://supervisord.org), for which you need your own server.
 
 This package allows running Laravel Horizon on shared hosting instances and servers where you don't have to option to install Supervisor.
