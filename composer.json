@@ -1,6 +1,6 @@
 {
 	"name": "ralphjsmit/laravel-horizon-cron-supervisor",
-	"description": "A package that provides a convenient artisan command to supervise your Laravel Horizon queues.",
+	"description": "A modern solution for running Laravel Horizon with a CRON-based supervisor.",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
