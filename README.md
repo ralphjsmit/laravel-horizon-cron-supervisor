@@ -1,4 +1,4 @@
-![laravel-horizon-cron-supervisor@2x](https://user-images.githubusercontent.com/59207045/139930330-556befe7-1246-492d-a803-8505f588f2eb.jpg)
+![laravel-horizon-cron-supervisor@2x](https://github.com/ralphjsmit/laravel-horizon-cron-supervisor/blob/main/docs/images/laravel-horizon-cron-supervisor.jpg)
 
 # A modern solution for running Laravel Horizon with a cron-based supervisor
 
