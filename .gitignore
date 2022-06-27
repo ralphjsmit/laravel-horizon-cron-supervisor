@@ -4,3 +4,4 @@ vendor.nosync
 node_modules
 node_modules.nosync
 .idea
+composer.lock
