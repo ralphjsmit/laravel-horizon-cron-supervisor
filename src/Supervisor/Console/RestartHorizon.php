@@ -2,7 +2,9 @@
 
 namespace RalphJSmit\LaravelHorizonCron\Supervisor\Console;
 
+use Exception;
 use Illuminate\Console\Command;
+use Laravel\Horizon\Contracts\MasterSupervisorRepository;
 
 class RestartHorizon extends Command
 {
@@ -18,7 +20,7 @@ class RestartHorizon extends Command
      *
      * @var string
      */
-    protected $description = 'Checking if Horizon is running and Starting if not';
+    protected $description = 'Checking if Horizon is running and starting if not.';
 
     /**
      * Execute the console command.
@@ -27,33 +29,34 @@ class RestartHorizon extends Command
      */
     public function handle(): int
     {
-        // First Check if horizon is installed.
         try {
-            $horizon = app(\Laravel\Horizon\Contracts\MasterSupervisorRepository::class);
-        } catch (\Exception) {
+            $horizon = app(MasterSupervisorRepository::class);
+        } catch (Exception) {
             $this->error('Horizon does not seem to be installed correctly.');
+
             return static::INVALID;
         }
 
         // Get supervisors.
         $masterSupervisors = $horizon->all();
 
-        // if none is running, we should start horizon.
-        if (count($masterSupervisors) === 0) {
+        // If none is running, we should start Horizon.
+        if ( count($masterSupervisors) === 0 ) {
             $this->error('Horizon is not running.');
+
             return $this->startHorizon();
         }
 
-        // Get the first supervisor abd check it's status.
+        // Get the first supervisor and check its status.
         $masterSupervisor = $masterSupervisors[0];
 
-        // if paused, we can resume it.
-        if ($masterSupervisor->status === 'paused') {
+        // If paused, we can resume it.
+        if ( $masterSupervisor->status === 'paused' ) {
             $this->warn('Horizon is running, but the status is paused.');
-            if ($this->option('resume-if-paused')) {
+            if ( $this->option('resume-if-paused') ) {
                 $this->info('Resuming Horizon.');
                 $this->call('horizon:continue');
-            } else if (!$this->option('silent') && $this->confirm('Do you want to resume Horizon?')) {
+            } else if ( ! $this->option('silent') && $this->confirm('Do you want to resume Horizon?') ) {
                 $this->info('Resuming Horizon.');
                 $this->call('horizon:continue');
             } else {
@@ -63,19 +66,25 @@ class RestartHorizon extends Command
         }
 
         $this->info('Horizon is already running...');
+
         return static::SUCCESS;
     }
 
-    private function startHorizon(): int
+    protected function startHorizon(): int
     {
         $this->line('Starting Horizon...');
+
         $phpPath = $this->option('php-path') ?? 'php';
+
         $fp = popen("{$phpPath} artisan horizon", "r");
-        while (!feof($fp)) {
+
+        while (! feof($fp)) {
             $buffer = fgets($fp, 4096);
             echo $buffer;
         }
+
         $this->error("Horizon was terminated and could not be started");
+
         pclose($fp);
 
         return static::FAILURE;
