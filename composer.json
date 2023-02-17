@@ -1,33 +1,33 @@
 {
-	"name": "ralphjsmit/laravel-horizon-cron-supervisor",
-	"description": "A modern solution for running Laravel Horizon with a CRON-based supervisor.",
-	"type": "library",
-	"license": "MIT",
-	"authors": [
-	  {
-		"name": "Ralph J. Smit",
-		"email": "rjs@ralphjsmit.com"
-	  }
-	],
-	"autoload": {
-		"psr-4": {
-			"RalphJSmit\\LaravelHorizonCron\\": "src"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"RalphJSmit\\LaravelHorizonCron\\": "tests"
-		}
-	},
-	"require-dev": {
-		"orchestra/testbench": "^6.0",
-		"phpunit/phpunit": "^9.5"
-	},
-	"extra": {
-		"laravel": {
-			"providers": [
-				"RalphJSmit\\LaravelHorizonCron\\Supervisor\\SupervisorServiceProvider"
-			]
-		}
-	}
+    "name" : "ralphjsmit/laravel-horizon-cron-supervisor",
+    "description" : "A modern solution for running Laravel Horizon with a CRON-based supervisor.",
+    "type" : "library",
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name" : "Ralph J. Smit",
+            "email" : "rjs@ralphjsmit.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "RalphJSmit\\LaravelHorizonCron\\" : "src"
+        }
+    },
+    "autoload-dev" : {
+        "psr-4" : {
+            "RalphJSmit\\LaravelHorizonCron\\" : "tests"
+        }
+    },
+    "require-dev" : {
+        "orchestra/testbench" : "^6.0|^7.0|^8.0",
+        "phpunit/phpunit" : "^9.5|^10.0"
+    },
+    "extra" : {
+        "laravel" : {
+            "providers" : [
+                "RalphJSmit\\LaravelHorizonCron\\Supervisor\\SupervisorServiceProvider"
+            ]
+        }
+    }
 }
