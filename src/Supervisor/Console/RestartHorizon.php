@@ -24,8 +24,6 @@ class RestartHorizon extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
     public function handle(): int
     {
@@ -41,7 +39,7 @@ class RestartHorizon extends Command
         $masterSupervisors = $horizon->all();
 
         // If none is running, we should start Horizon.
-        if ( count($masterSupervisors) === 0 ) {
+        if (count($masterSupervisors) === 0) {
             $this->error('Horizon is not running.');
 
             return $this->startHorizon();
@@ -51,12 +49,12 @@ class RestartHorizon extends Command
         $masterSupervisor = $masterSupervisors[0];
 
         // If paused, we can resume it.
-        if ( $masterSupervisor->status === 'paused' ) {
+        if ($masterSupervisor->status === 'paused') {
             $this->warn('Horizon is running, but the status is paused.');
-            if ( $this->option('resume-if-paused') ) {
+            if ($this->option('resume-if-paused')) {
                 $this->info('Resuming Horizon.');
                 $this->call('horizon:continue');
-            } else if ( ! $this->option('silent') && $this->confirm('Do you want to resume Horizon?') ) {
+            } elseif (! $this->option('silent') && $this->confirm('Do you want to resume Horizon?')) {
                 $this->info('Resuming Horizon.');
                 $this->call('horizon:continue');
             } else {
@@ -76,14 +74,14 @@ class RestartHorizon extends Command
 
         $phpPath = $this->option('php-path') ?? 'php';
 
-        $fp = popen("{$phpPath} artisan horizon", "r");
+        $fp = popen("{$phpPath} artisan horizon", 'r');
 
         while (! feof($fp)) {
             $buffer = fgets($fp, 4096);
             echo $buffer;
         }
 
-        $this->error("Horizon was terminated and could not be started");
+        $this->error('Horizon was terminated and could not be started');
 
         pclose($fp);
 
