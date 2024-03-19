@@ -7,26 +7,21 @@ use Illuminate\Support\ServiceProvider;
 
 class SupervisorServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
-        /**
-         * Register the check horizon status command
-         */
         $this->commands([
             \RalphJSmit\LaravelHorizonCron\Supervisor\Console\RestartHorizon::class,
         ]);
 
-        /**
-         * Schedule the command
-         */
         $this->app->booted(function () {
             $schedule = $this->app->make(Schedule::class);
+			
             $schedule->command('supervisor:check')->everyThreeMinutes();
         });
     }
 
-    public function register()
+    public function register(): void
     {
-
+		//
     }
 }
