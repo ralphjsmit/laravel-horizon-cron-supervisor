@@ -15,13 +15,13 @@ class SupervisorServiceProvider extends ServiceProvider
 
         $this->app->booted(function () {
             $schedule = $this->app->make(Schedule::class);
-			
+
             $schedule->command('supervisor:check')->everyThreeMinutes();
         });
     }
 
     public function register(): void
     {
-		//
+        //
     }
 }
