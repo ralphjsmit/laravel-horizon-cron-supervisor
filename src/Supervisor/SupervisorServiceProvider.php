@@ -12,7 +12,7 @@ class SupervisorServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/horizon-cron-supervisor.php' => config_path('horizon-cron-supervisor.php'),
-        ]);
+        ], 'horizon-cron-supervisor-config');
 
         $this->commands([
             \RalphJSmit\LaravelHorizonCron\Supervisor\Console\RestartHorizon::class,

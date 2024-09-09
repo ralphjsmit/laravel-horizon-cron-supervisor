@@ -20,6 +20,31 @@ composer require ralphjsmit/laravel-horizon-cron-supervisor
 
 The package works without any configuration. **Note that you need to have the Laravel Scheduler configured correctly.**
 
+## Publishing the config file
+
+You can publish the config file or just use the environment variables.
+
+```shell
+php artisan vendor:publish --tag="horizon-cron-supervisor-config"
+```
+
+The config file contents.
+```php
+<?php
+
+return [
+    /**
+     * Enables Horizon Cron Supervisor
+     */
+    'enabled' => env('HORIZON_CRON_SUPERVISOR_ENABLED', true),
+
+    /**
+     * Run every X minutes or define a cron expression like "0,20,40 * * * *"
+     */
+    'schedule' => env('HORIZON_CRON_SUPERVISOR_SCHEDULE', 3),
+];
+```
+
 ## How does this work with new deployments?
 
 When you deploy a new version of your app, you usually shut down your queues and Horizon instances in order let them use the files. The Laravel Scheduler doesn't run any commands when your application is in **maintenance mode** (`php artisan down`). Thus as long as your application is in maintenance mode, you don't need to worry about this package restarting your queues when you don't want that.
