@@ -24,7 +24,7 @@ class SupervisorServiceProvider extends ServiceProvider
                 $schedule = $this->app->make(Schedule::class);
 
                 $schedule->command('supervisor:check')->tap(
-                    fn (Event $event) => $event->expression = is_int($expression) ? "*/$expression * * * *" : $expression
+                    fn (Event $event) => $event->expression = is_numeric($expression) ? "*/$expression * * * *" : $expression
                 );
             }
         });
