@@ -11,7 +11,7 @@ class SupervisorServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../../config/horizon-cron-supervisor.php' => config_path('horizon-cron-supervisor.php'),
+            __DIR__ . '/../../config/horizon-cron-supervisor.php' => config_path('horizon-cron-supervisor.php'),
         ], 'horizon-cron-supervisor-config');
 
         $this->commands([
@@ -24,7 +24,7 @@ class SupervisorServiceProvider extends ServiceProvider
                 $schedule = $this->app->make(Schedule::class);
 
                 $schedule->command('supervisor:check')->tap(
-                    fn (Event $event) => $event->expression = is_numeric($expression) ? "*/$expression * * * *" : $expression
+                    fn (Event $event) => $event->expression = is_numeric($expression) ? "*/{$expression} * * * *" : $expression
                 );
             }
         });
@@ -32,6 +32,6 @@ class SupervisorServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/horizon-cron-supervisor.php', 'horizon-cron-supervisor');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/horizon-cron-supervisor.php', 'horizon-cron-supervisor');
     }
 }
