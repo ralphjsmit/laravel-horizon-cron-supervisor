@@ -2,7 +2,6 @@
 
 namespace RalphJSmit\LaravelHorizonCron\Supervisor;
 
-use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,12 +19,13 @@ class SupervisorServiceProvider extends ServiceProvider
 
         $this->app->booted(function () {
             if (config('horizon-cron-supervisor.enabled')) {
-                $expression = config('horizon-cron-supervisor.schedule');
                 $schedule = $this->app->make(Schedule::class);
 
-                $schedule->command('supervisor:check')->tap(
-                    fn (Event $event) => $event->expression = is_numeric($expression) ? "*/{$expression} * * * *" : $expression
-                );
+                $expression = config('horizon-cron-supervisor.schedule');
+
+                $schedule
+                    ->command('supervisor:check')
+                    ->cron(is_numeric($expression) ? "*/{$expression} * * * *" : $expression);
             }
         });
     }
