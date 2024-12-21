@@ -13,7 +13,7 @@ class RestartHorizon extends Command
      *
      * @var string
      */
-    protected $signature = 'supervisor:check {--r|resume-if-paused} {--s|silent} {--p|php-path=}';
+    protected $signature = 'supervisor:check {--r|resume-if-paused} {--p|php-path=}';
 
     /**
      * The console command description.
